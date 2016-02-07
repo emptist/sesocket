@@ -1,0 +1,23 @@
+{
+  "name": "sesocket",
+  "version": "0.1.0",
+  "description": "Socket client connecting to local trading api.",
+  "main": "./lib/sesocket.js",
+  "scripts": {
+    "cup": "coffee -bcmo lib/ src/ & git commit -am 'modified' & git push ",
+    "cupminor": "version minor & coffee -bcmo lib/ src/ & git commit -am 'minor update' & git push ",
+    "cupmajor": "version major & coffee -bcmo lib/ src/ & git commit -am 'major update' & git push ",
+    "cuppatch": "version patch & coffee -bcmo lib/ src/ & git commit -am 'patch update' & git push ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emptist/sesocket.git"
+  },
+  "author": "Jigme Ko <jigme1968@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emptist/sesocket/issues"
+  },
+  "homepage": "https://github.com/emptist/sesocket#readme"
+}
