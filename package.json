@@ -5,9 +5,9 @@
   "main": "./lib/sesocket.js",
   "scripts": {
     "cup": "coffee -bcmo lib/ src/ & git commit -am 'modified' & git push ",
-    "cupminor": "version minor & coffee -bcmo lib/ src/ & git commit -am 'minor update' & git push ",
-    "cupmajor": "version major & coffee -bcmo lib/ src/ & git commit -am 'major update' & git push ",
-    "cuppatch": "version patch & coffee -bcmo lib/ src/ & git commit -am 'patch update' & git push ",
+    "cupminor": "npm version minor & coffee -bcmo lib/ src/ & git commit -am 'minor update' & git push ",
+    "cupmajor": "npm version major & coffee -bcmo lib/ src/ & git commit -am 'major update' & git push ",
+    "cuppatch": "npm version patch & coffee -bcmo lib/ src/ & git commit -am 'patch update' & git push ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
