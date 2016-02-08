@@ -16,13 +16,14 @@ SocketServer要求如下:
   json: 發回來的資料須符合: {name:'資料名',value:資料內容},其中,資料名等同client所發申請
 config文件
   要求放在外部
-  
+
 ###
 
 util = require 'util'
+path = require 'path'
 {Socket} = require 'net'
 # TODO: 糾正引用文件位置方法
-{端口,主機} = require './config'
+{端口,主機} = require path.join __dirname,'config'
 
 券商接口 = new Socket()
 
