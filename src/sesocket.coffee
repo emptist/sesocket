@@ -22,14 +22,21 @@ config文件
 util = require 'util'
 path = require 'path'
 {Socket} = require 'net'
-# TODO: 糾正引用文件位置方法
+### TODO: 改成class
+  class 券商接口 extends Socket
+    constructor:(@賬戶,@端口,@主機)->
+
+  券商 = new 券商接口()
+###
 {端口,主機} = require path.join __dirname,'config'
+
 
 券商接口 = new Socket()
 
+
+
 券商接口.on 'close',()->
   util.log 'socket closed'
-
 ###
 
   券商接口收到任何資料,都交給所屬賬戶來處理,
@@ -40,9 +47,9 @@ path = require 'path'
 ###
 券商接口.on 'data', (data)->
   obj = JSON.parse data
-  if obj.hasOwnProperty 'name'
-    券商接口.賬戶[obj.name] obj.value, (指令)->
-      if 指令 then 券商接口.發出指令(指令)
+  # 若 obj 無'name' 或 賬戶 無 obj.name 都會回復 undefined:
+  券商接口.賬戶[obj.name]? obj.value, (指令)->
+    if 指令 then 券商接口.發出指令(指令)
 
 
 # 盡量簡化了
