@@ -1,3 +1,7 @@
+util = require 'util'
+path = require 'path'
+{Socket} = require 'net'
+
 ### 券商接口
 基本功能:
   提取資料:回報賬戶等資料
@@ -19,9 +23,6 @@ config文件
 
 ###
 
-util = require 'util'
-path = require 'path'
-{Socket} = require 'net'
 ### TODO: 改成class
   class 券商接口 extends Socket
     constructor:(@賬戶,@端口,@主機)->
@@ -30,9 +31,7 @@ path = require 'path'
 ###
 {端口,主機} = require path.join __dirname,'config'
 
-
 券商接口 = new Socket()
-
 
 
 券商接口.on 'close',()->
