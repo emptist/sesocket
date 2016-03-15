@@ -35,7 +35,7 @@ config文件
 
 
 券商接口.on 'close',()->
-  util.log 'socket closed'
+  util.log 'socket連接已結束'
 ###
 
   券商接口收到任何資料,都交給所屬賬戶來處理,
