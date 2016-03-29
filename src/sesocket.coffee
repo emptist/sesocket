@@ -39,7 +39,7 @@ config文件
 
 券商接口.交易時間 = ->
   d = new Date()
-  return (d.getDay() < 6) and (16 > d.getHours() > 8)
+  return (d.getDay() < 6) and (15 > d.getHours() > 8)
 ###
 
   券商接口收到任何資料,都交給所屬賬戶來處理,
