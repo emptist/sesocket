@@ -53,10 +53,13 @@ config文件
   # 若 obj 無'name' 或 賬戶 無 obj.name 都會回復 undefined:
   券商接口.賬戶[obj.name]? obj.value, (指令)->
     if 指令
-      if  券商接口.交易時間()
-        券商接口.發出指令(指令)
-      else
-        券商接口.發出指令("test#{指令}")
+      try
+        if  券商接口.交易時間()
+          券商接口.發出指令(指令)
+        else
+          券商接口.發出指令("test#{指令}")
+      catch error
+        console.error error
 
 
 # 盡量簡化了
