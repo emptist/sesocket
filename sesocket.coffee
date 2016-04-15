@@ -49,17 +49,22 @@ config文件
 
 ###
 券商接口.on 'data', (data)->
-  obj = JSON.parse data
-  # 若 obj 無'name' 或 賬戶 無 obj.name 都會回復 undefined:
-  券商接口.賬戶[obj.name]? obj.value, (指令)->
-    if 指令
-      try
-        if  券商接口.交易時間()
-          券商接口.發出指令(指令)
-        else
-          券商接口.發出指令("test#{指令}")
-      catch error
-        console.error error
+  try
+    obj = JSON.parse data
+
+    # 若 obj 無'name' 或 賬戶 無 obj.name 都會回復 undefined:
+    券商接口.賬戶[obj.name]? obj.value, (指令)->
+      if 指令
+        try
+          if  券商接口.交易時間()
+            券商接口.發出指令(指令)
+          else
+            券商接口.發出指令("test#{指令}")
+        catch error
+          console.error error
+
+  catch error
+    console.error error
 
 
 # 盡量簡化了
