@@ -37,7 +37,7 @@ config文件
 券商接口.on 'close',()->
   util.log 'socket連接已結束'
 
-券商接口.交易時間 = ->
+券商接口.現正交易 = ->
   d = new Date()
   return (d.getDay() < 6) and (15 > d.getHours() > 8)
 ###
@@ -56,7 +56,7 @@ config文件
     券商接口.賬戶[obj.name]? obj.value, (指令)->
       if 指令
         try
-          if  券商接口.交易時間()
+          if 券商接口.現正交易()
             券商接口.發出指令(指令)
           else
             券商接口.發出指令("test#{指令}")
