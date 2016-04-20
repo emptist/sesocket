@@ -61,10 +61,10 @@ config文件
           else
             券商接口.發出指令("test#{指令}")
         catch error
-          console.error 'sesocket.coffee(可忽略): ', error
+          console.error 'sesocket.coffee >> (可忽略): ', error
 
   catch error
-    console.error 'sesocket.coffee(可忽略): ', error
+    console.error 'sesocket.coffee >> (可忽略): ', error
 
 
 # 盡量簡化了
