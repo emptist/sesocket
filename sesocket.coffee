@@ -51,7 +51,6 @@ config文件
 券商接口.on 'data', (data)->
   try
     obj = JSON.parse data
-
     # 若 obj 無'name' 或 賬戶 無 obj.name 都會回復 undefined:
     券商接口.賬戶[obj.name]? obj.value, (指令)->
       if 指令
@@ -61,10 +60,10 @@ config文件
           else
             券商接口.發出指令("test#{指令}")
         catch error
-          console.error 'sesocket.coffee >> (可忽略): ', error
+          console.error obj,'sesocket.coffee >> (可忽略): ', error
 
   catch error
-    console.error 'sesocket.coffee >> (可忽略): ', error
+    console.error data, 'sesocket.coffee >> (可忽略): ', error
 
 
 # 盡量簡化了
